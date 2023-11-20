@@ -1,0 +1,33 @@
+trigger:
+- master
+
+resources:
+- repo: self
+
+pool:
+  vmImage: 'ubuntu-latest'
+
+variables:
+  dockerRegistryServiceConnection: '<dockerServiceConnection>'
+  imageRepository: '<mzeinedine/ds-midterm-image>'
+  containerRegistry: '<docker.io>'
+  dockerfilePath: '$(Build.SourcesDirectory)/Dockerfile'
+  tag: '$(Build.BuildId)'
+
+steps:
+- task: Docker@2
+  inputs:
+    command: 'build'
+    dockerfile: '$(dockerfilePath)'
+    containerRegistry: '$(dockerRegistryServiceConnection)'
+    repository: '$(imageRepository)'
+    tags: |
+      $(tag)
+
+- task: Docker@2
+  inputs:
+    command: 'push'
+    containerRegistry: '$(dockerRegistryServiceConnection)'
+    repository: '$(imageRepository)'
+    tags: |
+      $(tag)
