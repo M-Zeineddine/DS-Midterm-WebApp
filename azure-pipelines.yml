@@ -8,9 +8,9 @@ pool:
   vmImage: 'ubuntu-latest'
 
 variables:
-  dockerRegistryServiceConnection: '<dockerServiceConnection>'
-  imageRepository: '<mzeinedine/ds-midterm-image>'
-  containerRegistry: '<docker.io>'
+  dockerRegistryServiceConnection: 'dockerServiceConnection'
+  imageRepository: 'mzeinedine/ds-midterm-image'
+  containerRegistry: 'docker.io'
   dockerfilePath: '$(Build.SourcesDirectory)/Dockerfile'
   tag: '$(Build.BuildId)'
 
