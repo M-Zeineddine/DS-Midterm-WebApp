@@ -1,0 +1,38 @@
+body {
+  font-family: Arial, sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+  background-color: #f0f0f0;
+}
+
+.container {
+  text-align: center;
+}
+
+#nameInput {
+  margin-top: 20px;
+  padding: 10px;
+  width: 200px;
+}
+
+#greetButton {
+  padding: 10px 20px;
+  margin-left: 10px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+#greetButton:hover {
+  background-color: #0056b3;
+}
+
+#greetingText {
+  margin-top: 20px;
+  color: green;
+  font-size: 20px;
+}
