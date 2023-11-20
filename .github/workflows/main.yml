@@ -1,0 +1,21 @@
+name: CI Workflow
+
+on:
+  push:
+    branches: [ main ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+
+    - name: Build the Web App
+      run: echo "Build steps go here"
+
+    - name: Run Tests
+      run: echo "Test commands go here"
+
+    - name: Build Docker Image
+      run: echo "Docker build commands go here"
