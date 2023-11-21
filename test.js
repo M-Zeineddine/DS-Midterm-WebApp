@@ -7,9 +7,9 @@ describe('App functionality tests', () => {
   beforeAll(async () => {
     browser = await puppeteer.launch();
     page = await browser.newPage();
-    await page.goto('D:\Mawed\Semester 11 - Fall  2024\Distributed Systems\Midterm\index.html', { waitUntil: 'networkidle0' }); // replace with the path to your HTML file
+    await page.goto('D:\\Mawed\\Semester 11 - Fall  2024\\Distributed Systems\\Midterm\\index.html', { waitUntil: 'networkidle0' }); // replace with the path to your HTML file
   });
-  
+
   afterAll(async () => {
     await browser.close();
   });
