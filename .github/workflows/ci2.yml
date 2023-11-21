@@ -1,0 +1,37 @@
+name: CI Pipeline
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+    
+    - name: Set up Node.js
+      uses: actions/setup-node@v2
+      with:
+        node-version: '16'
+
+    - name: Install dependencies
+      run: npm install
+
+    - name: Run tests
+      run: node test.js
+
+    - name: Build Docker image
+      run: docker build -t mzeinedine/ds-midterm-image:latest .
+
+    - name: Login to Docker Hub
+      uses: docker/login-action@v1
+      with:
+        username: ${{ secrets.mzeinedine }}
+        password: ${{ secrets.dckr_pat_YKXjGQDjwedBk8JMkbFAB5AnO88 }}
+
+    - name: Push Docker image to Docker Hub
+      run: docker push mzeinedine/ds-midterm-image:latest
