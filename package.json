@@ -1,7 +1,7 @@
 {
   "devDependencies": {
     "jest": "^29.7.0",
-    "puppeteer": "^latest"
+    "puppeteer": "^21.5.2"
   },
   "name": "midterm",
   "version": "1.0.0",
